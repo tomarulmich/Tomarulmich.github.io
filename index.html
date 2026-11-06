@@ -69,10 +69,6 @@
       </nav>
 
       <div class="flex items-center gap-2">
-        <button id="btn-open-deploy" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-sky-600 hover:bg-sky-500 text-white shadow-sm transition">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
-          <span>Host Free Guide</span>
-        </button>
         <button id="btn-print-resume" type="button" title="Print or Save as PDF" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
         </button>
@@ -358,43 +354,6 @@
     </div>
   </main>
 
-  <!-- Free Hosting Guide Modal -->
-  <div id="deploy-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 p-4 no-print">
-    <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 max-w-2xl w-full p-6 sm:p-7 shadow-2xl max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
-        <div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white">How to Host This Online Profile for Free</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">This entire portfolio is a single self-contained HTML file—no server or database fees required.</p>
-        </div>
-        <button type="button" id="btn-close-deploy" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-
-      <div class="mt-4 space-y-4 text-sm text-slate-600 dark:text-slate-300">
-        <div class="rounded-xl bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 p-4">
-          <div class="font-bold text-sky-900 dark:text-sky-300">1. GitHub Pages (Top Industry Standard for Tech Profiles)</div>
-          <ol class="list-decimal list-inside mt-2 space-y-1 text-xs leading-relaxed">
-            <li>Create a free public repository on GitHub named <code class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 font-mono">username.github.io</code>.</li>
-            <li>Download this HTML file, rename it to <code class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 font-mono">index.html</code>, and upload it along with your PDF resume.</li>
-            <li>Go to <strong>Settings → Pages</strong> and select the <code class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 font-mono">main</code> branch—your live URL will be ready with free HTTPS.</li>
-          </ol>
-        </div>
-
-        <div class="rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 p-4">
-          <div class="font-bold text-slate-900 dark:text-white">2. Cloudflare Pages / Vercel (Fastest Global CDN + Custom Domain)</div>
-          <p class="mt-1.5 text-xs leading-relaxed">
-            Connect your GitHub repository or drag-and-drop a folder containing <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono">index.html</code> into <strong>Cloudflare Pages</strong> (unlimited static bandwidth on the Free plan) or <strong>Vercel Hobby</strong> (free <code class="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-mono">.vercel.app</code> domain).
-          </p>
-        </div>
-      </div>
-
-      <div class="mt-6 flex justify-end">
-        <button type="button" id="btn-close-deploy-footer" class="px-4 py-2 rounded-lg text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white transition">Got It</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="border-t border-slate-200 dark:border-slate-800 py-8 mt-12 text-center text-xs text-slate-500 dark:text-slate-400">
     <p>Thomas Arulanandam Michael · Senior Technical Manager &amp; Solution Architect · Chennai, India</p>
@@ -669,22 +628,7 @@
         iconMoon.classList.toggle("hidden", isDark);
       });
 
-      // Modal controls
-      const modal = document.getElementById("deploy-modal");
-      const openModal = () => {
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-      };
-      const closeModal = () => {
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-      };
-      document.getElementById("btn-open-deploy").addEventListener("click", openModal);
-      document.getElementById("btn-close-deploy").addEventListener("click", closeModal);
-      document.getElementById("btn-close-deploy-footer").addEventListener("click", closeModal);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-      });
+
     });
   </script>
 </body>
